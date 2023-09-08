@@ -7,11 +7,12 @@ public class DataScanner {
 
     public String requestData() {
         System.out.println("Введите Фамилию, Имя, Отчество, дату рождения, номер телефона и пол" +
-                " в произвольном порядке, разделённые прробелом:");
+                " в произвольном порядке, разделённые пробелом:");
         String data = scanner.nextLine();
+        System.out.println();
 
         try {
-            dataTester.testData(data);
+            dataTester.testInsertion(data);
         } catch (RuntimeException e) {
             System.out.println(e);
             requestData();

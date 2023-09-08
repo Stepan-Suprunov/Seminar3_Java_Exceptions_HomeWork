@@ -32,11 +32,17 @@
 public class Main {
     public static void main(String[] args) {
 
-       DataScanner dataScanner = new DataScanner();
+        DataScanner dataScanner = new DataScanner();
+        DataParcer dataParcer = new DataParcer();
 
-       String data = dataScanner.requestData();
+        String data = dataScanner.requestData();
+
+        String[] parcedData = dataParcer.parceData(data);
+        for (int i = 0; i < parcedData.length; i++) {
+            System.out.println((i+1) + ": " + parcedData[i]);
+        }
 
     }
 }
 
-// НЕ УСПЕЛ ДОДЕЛАТЬ, БУКВАЛЬНО СЕЙЧАС ДОПИСЫВАЮ!
+// НЕ УСПЕЛ ДОДЕЛАТЬ, РАБОТА В ПРОЦЕССЕ ЗАВЕРШЕНИЯ!
