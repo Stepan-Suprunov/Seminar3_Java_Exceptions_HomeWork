@@ -39,9 +39,8 @@ public class Main {
 
         String[] parcedData = dataParcer.parceData(data);
         for (int i = 0; i < parcedData.length; i++) {
-            System.out.println((i+1) + ": " + parcedData[i]);
+            System.out.println((i + 1) + ": " + parcedData[i]);
         }
-
     }
 }
 

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class DataParcer {
 
     DataTester dataTester = new DataTester();
@@ -9,9 +11,12 @@ public class DataParcer {
 // 0: Имя
 // 1: Фамилия
 // 2: Отчество
-// 3: Датат рождения
+// 3: Дата рождения
 // 4: Телефонный номер
 // 5: Пол
+
+// Расчёт на то, что пользователь введёт Фамилию Имя и Отчество последовательно, хоть и в произвольном порядке
+// относительно остальных данных. Как научит программу разделять фио по значениям не могу понять. Ибо это всё строки.
 
         String[] arr = s.split(" ");
 
@@ -81,15 +86,18 @@ public class DataParcer {
             dataTester.testData(finalDataArray);
         } catch (RuntimeException e) {
             System.out.println(e);
-            dataScanner.requestData();
+            parceData(dataScanner.requestData());
         }
+
+// Не понимаю, почему при выбросе исключения и повторном вводе данных пользователем функция
+// всё равно возвращает ПЕРВЫЙ(с ошибкой) массив строк!
 
         return finalDataArray;
     }
 
     public static boolean isNumeric(String str) {
         try {
-            Integer.parseInt(str);
+            Double.parseDouble(str);
             return true;
         } catch (NumberFormatException e) {
             return false;

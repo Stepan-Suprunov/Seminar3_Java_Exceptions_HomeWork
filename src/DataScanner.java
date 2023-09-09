@@ -6,17 +6,20 @@ public class DataScanner {
     Scanner scanner = new Scanner(System.in);
 
     public String requestData() {
+
         System.out.println("Введите Фамилию, Имя, Отчество, дату рождения, номер телефона и пол" +
                 " в произвольном порядке, разделённые пробелом:");
-        String data = scanner.nextLine();
-        System.out.println();
+
+        String temporary = scanner.nextLine();
 
         try {
-            dataTester.testInsertion(data);
+            dataTester.testInsertion(temporary);
         } catch (RuntimeException e) {
             System.out.println(e);
             requestData();
         }
+
+        String data = temporary;
 
         return data;
     }

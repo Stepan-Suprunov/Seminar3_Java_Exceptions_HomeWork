@@ -32,8 +32,8 @@ public class DataTester {
             throw new IncorrectBirthYearException("Неверно указан год рождения.");
         }
 
-        if (data[5].isEmpty()) {
-            throw new IncorrectGenderException("Неверно указан год рождения.");
+        if (data[5] == null) {
+            throw new IncorrectGenderException("Неверно указан пол.");
         }
     }
 }
@@ -68,7 +68,7 @@ class IncorrectBirthYearException extends RuntimeException {
     }
 }
 
-class IncorrectGenderException extends NullPointerException {
+class IncorrectGenderException extends RuntimeException {
     public IncorrectGenderException(String message) {
         super(message);
     }
